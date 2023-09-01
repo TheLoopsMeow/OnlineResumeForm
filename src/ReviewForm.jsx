@@ -1,7 +1,9 @@
 import React from "react"
 import InputForm from "./InputForm"
 
-function ReviewForm({newResumeName, newResumeEmail, newResumePhone, schoolName, degree, graduationDate, priorEmployer, position, employmentDates}) {
+// {newResumeName, newResumeEmail, newResumePhone, schoolName, degree, graduationDate, priorEmployer, position, employmentDates}
+
+function ReviewForm() {
 
     return(
         <>

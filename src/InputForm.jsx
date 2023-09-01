@@ -153,10 +153,10 @@ function InputForm () {
         
          <div style={{color: "red"}}>{pleaseComplete}</div>
          <span>        
-        <ReviewForm newResumeName={newResumeName} newResumeEmail={newResumeEmail} newResumePhone={newResumePhone} schoolName={schoolName} degree={degree} graduationDate={graduationDate} priorEmployer={priorEmployer} position={position} employmentDates={employmentDates}/>
+        <ReviewForm />
         </span>
         </>
-
+// newResumeName={newResumeName} newResumeEmail={newResumeEmail} newResumePhone={newResumePhone} schoolName={schoolName} degree={degree} graduationDate={graduationDate} priorEmployer={priorEmployer} position={position} employmentDates={employmentDates}
 
     )
 }
