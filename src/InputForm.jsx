@@ -27,8 +27,7 @@ function InputForm () {
    
     function handleSetIncomplete() {
         setIncomplete(true)
-        console.log("in handle set incomplete")
-        console.log(incomplete)
+      
         setPleaseComplete("Please complete all fields.")
     }
     
@@ -42,33 +41,39 @@ function InputForm () {
     const [priorEmployer, setEmployer ] = useState("")
     const [position, setPosition ] = useState("")
     const [employmentDates, setDates ] = useState("")
-    let [employeeInfo, setEmployeeInfo] = useState([])
+
+    let [employeeInfo, setEmployeeInfo] = useState({})
     
 
     function handleButton (e) {
         e.preventDefault()
 
         if (newResumeName && newResumeEmail && newResumePhone && schoolName && degree && graduationDate && priorEmployer && position && employmentDates) {
-            
         setIncomplete(false)
         setPleaseComplete("")
 
 
-        const tempArray = []
+        const tempObj = {
+            name: newResumeName,
+            email: newResumeEmail,
+            phone: newResumePhone,
+            school: schoolName,
+            degree: degree,
+            graduationDate: graduationDate,
+            priorEmployer: priorEmployer,
+            position: position,
+            employmentDate: employmentDates
+        }
 
-        tempArray.push(newResumeName)
-        tempArray.push(newResumeEmail)
-        tempArray.push(newResumePhone)
-        tempArray.push(schoolName)
-        tempArray.push(degree)
-        tempArray.push(graduationDate)
-        tempArray.push(priorEmployer)
-        tempArray.push(position)
-        tempArray.push(employmentDates)
+    function handleSetEmployeeInfo () {
+        setEmployeeInfo({
+            ...tempObj,
+        })
+        }
 
-        setEmployeeInfo(employeeInfo = [...tempArray])
-
-        console.log(employeeInfo)
+        //call the function to set the employee object
+        handleSetEmployeeInfo()
+         
         }
 
        else {handleSetIncomplete()}
@@ -153,7 +158,7 @@ function InputForm () {
         
          <div style={{color: "red"}}>{pleaseComplete}</div>
          <span>        
-        <ReviewForm />
+        {/* <ReviewForm /> */}
         </span>
         </>
 // newResumeName={newResumeName} newResumeEmail={newResumeEmail} newResumePhone={newResumePhone} schoolName={schoolName} degree={degree} graduationDate={graduationDate} priorEmployer={priorEmployer} position={position} employmentDates={employmentDates}
