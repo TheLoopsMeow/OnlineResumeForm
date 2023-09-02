@@ -2,10 +2,15 @@ import React from "react"
 import {useState} from "react"
 import ReviewForm from "./ReviewForm"
 
+
 const styles = {
     color: "pink",
     display: "inline-block",
 
+}
+
+const styles2 = {
+    align: "right"
 }
 
 const largeInput = {
@@ -20,10 +25,11 @@ const largeInput = {
     margin: "2px, 2px"
 }
 
-function InputForm () {
+
+function InputForm ({incomplete, setIncomplete}) {
 
     const [pleaseComplete, setPleaseComplete] = useState("")
-    const [incomplete, setIncomplete] = useState(true)
+    
    
     function handleSetIncomplete() {
         setIncomplete(true)
@@ -41,16 +47,19 @@ function InputForm () {
     const [priorEmployer, setEmployer ] = useState("")
     const [position, setPosition ] = useState("")
     const [employmentDates, setDates ] = useState("")
+    const [infoComplete, setInfoComplete] = useState(false)
 
     let [employeeInfo, setEmployeeInfo] = useState({})
     
 
     function handleButton (e) {
         e.preventDefault()
+        
 
         if (newResumeName && newResumeEmail && newResumePhone && schoolName && degree && graduationDate && priorEmployer && position && employmentDates) {
         setIncomplete(false)
         setPleaseComplete("")
+        
 
 
         const tempObj = {
@@ -73,10 +82,12 @@ function InputForm () {
 
         //call the function to set the employee object
         handleSetEmployeeInfo()
-         
+        
         }
 
        else {handleSetIncomplete()}
+
+    //    callReviewForm(infoComplete)
 
     }
 
@@ -121,8 +132,11 @@ function InputForm () {
         setDates(e.target.value)
     }
 
+    console.log(employeeInfo)
+    
     return (
         <>
+        
         <span style={styles}>
         <form >
         Personal Information:
@@ -158,11 +172,18 @@ function InputForm () {
         
          <div style={{color: "red"}}>{pleaseComplete}</div>
          <span>        
-        {/* <ReviewForm /> */}
         </span>
+        
+        {/* <span style={styles2}>
+            <ReviewForm employeeInfo/>
+        </span> */}
+
         </>
-// newResumeName={newResumeName} newResumeEmail={newResumeEmail} newResumePhone={newResumePhone} schoolName={schoolName} degree={degree} graduationDate={graduationDate} priorEmployer={priorEmployer} position={position} employmentDates={employmentDates}
+        
 
     )
 }
 export default InputForm
+
+
+

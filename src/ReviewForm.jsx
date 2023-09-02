@@ -3,8 +3,8 @@ import InputForm from "./InputForm"
 
 // {newResumeName, newResumeEmail, newResumePhone, schoolName, degree, graduationDate, priorEmployer, position, employmentDates}
 
-function ReviewForm() {
-
+function ReviewForm(props) {
+    console.log("In Review form")
     return(
         <>
             <span>
@@ -12,7 +12,7 @@ function ReviewForm() {
                 <br></br>
                 Personal Information:
                 <br></br>
-                <div>{newResumeName}</div>
+                <div>{props.name}</div>
                 <div></div>
                 <div></div>
 
