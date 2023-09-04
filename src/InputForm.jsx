@@ -1,6 +1,7 @@
 import React from "react"
 import {useState} from "react"
 import ReviewForm from "./ReviewForm"
+import App from "./App"
 
 
 const styles = {
@@ -26,7 +27,7 @@ const largeInput = {
 }
 
 
-function InputForm ({incomplete, setIncomplete}) {
+function InputForm ({incomplete, setIncomplete, employeeInfo, setEmployeeInfo}) {
 
     const [pleaseComplete, setPleaseComplete] = useState("")
     
@@ -49,7 +50,7 @@ function InputForm ({incomplete, setIncomplete}) {
     const [employmentDates, setDates ] = useState("")
     const [infoComplete, setInfoComplete] = useState(false)
 
-    let [employeeInfo, setEmployeeInfo] = useState({})
+    // let [employeeInfo, setEmployeeInfo] = useState({})
     
 
     function handleButton (e) {
@@ -75,9 +76,7 @@ function InputForm ({incomplete, setIncomplete}) {
         }
 
     function handleSetEmployeeInfo () {
-        setEmployeeInfo({
-            ...tempObj,
-        })
+        setEmployeeInfo(tempObj)
         }
 
         //call the function to set the employee object
@@ -132,8 +131,6 @@ function InputForm ({incomplete, setIncomplete}) {
         setDates(e.target.value)
     }
 
-    console.log(employeeInfo)
-    
     return (
         <>
         
@@ -181,6 +178,7 @@ function InputForm ({incomplete, setIncomplete}) {
         </>
         
 
+    
     )
 }
 export default InputForm

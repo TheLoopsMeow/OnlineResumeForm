@@ -1,35 +1,56 @@
 import React from "react"
 import InputForm from "./InputForm"
+import App from "./App"
 
-// {newResumeName, newResumeEmail, newResumePhone, schoolName, degree, graduationDate, priorEmployer, position, employmentDates}
 
-function ReviewForm(props) {
-    console.log("In Review form")
+const styles4 = {
+    color: "pink"
+}
+function ReviewForm(employeeInfo) {
+    
+    function handleDone () {
+        
+    }
+
+    function handleEdit () {
+        e.preventDefault()
+        return(
+        <>
+        <h1>APPLY NOW</h1>
+        <InputForm employeeInfo={employeeInfo} setEmployeeInfo={setEmployeeInfo}/>
+      </>
+        )
+    }
+
     return(
         <>
+        <form>
             <span>
-                Please review before submitting:
+                
                 <br></br>
-                Personal Information:
                 <br></br>
-                <div>{props.name}</div>
-                <div></div>
-                <div></div>
+                <div style={styles4}>Personal Information:</div>
+                <br></br>
+                <div>{employeeInfo.employeeInfo.name}</div>
+                <div>{employeeInfo.employeeInfo.email}</div>
+                <div>{employeeInfo.employeeInfo.phone}</div>
 
-                Education:
                 <br></br>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div style={styles4}>Education:</div>
+                <div>{employeeInfo.employeeInfo.school}</div>
+                <div>{employeeInfo.employeeInfo.degree}</div>
+                <div>{employeeInfo.employeeInfo.graduationDate}</div>
 
-                Prior Experience:
                 <br></br>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div style={styles4}>Prior Experience:</div>
+                <div>{employeeInfo.employeeInfo.priorEmployer}</div>
+                <div>{employeeInfo.employeeInfo.position}</div>
+                <div>{employeeInfo.employeeInfo.employmentDate}</div>
                 <br></br>
-
             </span>
+            <button onClick={handleEdit}>Edit</button>
+            <button>Submit</button>
+        </form>
         </>
     )
 }
