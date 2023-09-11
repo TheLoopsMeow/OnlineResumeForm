@@ -9,11 +9,9 @@ const styles4 = {
     color: "pink"
 }
 function ReviewForm({employeeInfo, formComplete}) {
-    console.log(employeeInfo.name)
     function handleDone () {
         
     }
-
     return(
         <>
         <form>

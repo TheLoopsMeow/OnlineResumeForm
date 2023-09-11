@@ -18,14 +18,24 @@ export const EmployeeInfoContext = createContext({
   position: "",
   employmentDate: ""
 })
-
+// console.log(employeeInfo.name)
 
 function App() {
 
-  const [employeeInfo, setEmployeeInfo] = useState({})
+  const [employeeInfo, setEmployeeInfo] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    school: "",
+    degree: "",
+    graduationDate: "",
+    priorEmployer: "",
+    position: "",
+    employmentDate: ""
+  })
   const [formComplete, setFormComplete] = useState(false)
 
-
+console.log(employeeInfo.name)
   return (
     <>
     <BrowserRouter>
