@@ -1,6 +1,8 @@
 import React from "react"
 import InputForm from "./InputForm"
 import App from "./App"
+import {BrowserRouter, RouterProvider, Route, Routes, Link } from "react-router-dom"
+
 
 
 const styles4 = {
@@ -17,8 +19,8 @@ function ReviewForm({employeeInfo}) {
         console.log("In handleEdit")
         return(
         <>
-        <h1>APPLY NOW</h1>
-        <InputForm />
+        {/* <h1>APPLY NOW</h1>
+        <InputForm /> */}
       </>
         )
     }
@@ -49,8 +51,15 @@ function ReviewForm({employeeInfo}) {
                 <div>{employeeInfo.employmentDate}</div>
                 <br></br>
             </span>
-            <button onClick={(e)=>{handleEdit(e)}}>Edit</button>
-            <button>Submit</button>
+            <button onClick={(e)=>{handleEdit(e)}}>
+            <Link to="/">
+            Edit
+            </Link>
+            </button>
+            <button>
+            Submit
+
+            </button>
         </form>
         </>
     )

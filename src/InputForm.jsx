@@ -5,6 +5,9 @@ import App from "./App"
 import {EmployeeInfoContext} from "./App"
 import {FormCopmleteContext} from "./App"
 
+import {BrowserRouter, Route, Routes, Link } from "react-router-dom"
+
+
 const styles = {
     color: "pink",
     display: "inline-block",
@@ -57,6 +60,7 @@ function InputForm ({setEmployeeInfo, setFormComplete}) {
     const [position, setPosition ] = useState("")
     const [employmentDates, setDates ] = useState("")
     const [infoComplete, setInfoComplete] = useState(false)
+ 
 
     function handleButton (e) {
         e.preventDefault()
@@ -163,7 +167,9 @@ function InputForm ({setEmployeeInfo, setFormComplete}) {
         <br></br>
         <textarea onChange={(e)=>{handleDates(e)}} style={largeInput} type="text" value={employmentDates} placeholder="When did you work there?"></textarea>
         <br></br>
-        <button type="submit" onClick={(e)=>handleButton(e)}>Apply</button>
+        
+        <button type="submit" onClick={(e)=>handleButton(e)}><Link to="/ReviewForm" >Apply</Link></button>
+        
         </form>
         </span>
          <div style={{color: "red"}}>{pleaseComplete}</div>
