@@ -6,18 +6,19 @@ import App from "./App"
 const styles4 = {
     color: "pink"
 }
-function ReviewForm(employeeInfo) {
+function ReviewForm({employeeInfo}) {
     
     function handleDone () {
         
     }
 
-    function handleEdit () {
+    function handleEdit (e) {
         e.preventDefault()
+        console.log("In handleEdit")
         return(
         <>
         <h1>APPLY NOW</h1>
-        <InputForm employeeInfo={employeeInfo} setEmployeeInfo={setEmployeeInfo}/>
+        <InputForm />
       </>
         )
     }
@@ -30,7 +31,7 @@ function ReviewForm(employeeInfo) {
                 <br></br>
                 <br></br>
                 <div style={styles4}>Personal Information:</div>
-                <br></br>
+               
                 <div>{employeeInfo.employeeInfo.name}</div>
                 <div>{employeeInfo.employeeInfo.email}</div>
                 <div>{employeeInfo.employeeInfo.phone}</div>
@@ -48,7 +49,7 @@ function ReviewForm(employeeInfo) {
                 <div>{employeeInfo.employeeInfo.employmentDate}</div>
                 <br></br>
             </span>
-            <button onClick={handleEdit}>Edit</button>
+            <button onClick={(e)=>{handleEdit(e)}}>Edit</button>
             <button>Submit</button>
         </form>
         </>

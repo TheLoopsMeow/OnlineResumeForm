@@ -1,5 +1,5 @@
 import React from "react"
-import {useState} from "react"
+import {useState, useContext} from "react"
 import ReviewForm from "./ReviewForm"
 import App from "./App"
 
@@ -26,9 +26,11 @@ const largeInput = {
     margin: "2px, 2px"
 }
 
+function InputForm ({employeeInfo}) {
 
-function InputForm ({incomplete, setIncomplete, employeeInfo, setEmployeeInfo}) {
-
+    if(employeeInfo){
+        console.log(employeeInfo)
+    }
     const [pleaseComplete, setPleaseComplete] = useState("")
     
    
@@ -50,19 +52,13 @@ function InputForm ({incomplete, setIncomplete, employeeInfo, setEmployeeInfo}) 
     const [employmentDates, setDates ] = useState("")
     const [infoComplete, setInfoComplete] = useState(false)
 
-    // let [employeeInfo, setEmployeeInfo] = useState({})
-    
-
     function handleButton (e) {
         e.preventDefault()
         
-
         if (newResumeName && newResumeEmail && newResumePhone && schoolName && degree && graduationDate && priorEmployer && position && employmentDates) {
         setIncomplete(false)
         setPleaseComplete("")
         
-
-
         const tempObj = {
             name: newResumeName,
             email: newResumeEmail,
@@ -85,8 +81,6 @@ function InputForm ({incomplete, setIncomplete, employeeInfo, setEmployeeInfo}) 
         }
 
        else {handleSetIncomplete()}
-
-    //    callReviewForm(infoComplete)
 
     }
 
@@ -170,15 +164,9 @@ function InputForm ({incomplete, setIncomplete, employeeInfo, setEmployeeInfo}) 
          <div style={{color: "red"}}>{pleaseComplete}</div>
          <span>        
         </span>
-        
-        {/* <span style={styles2}>
-            <ReviewForm employeeInfo/>
-        </span> */}
 
         </>
         
-
-    
     )
 }
 export default InputForm
