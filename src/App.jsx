@@ -35,10 +35,7 @@ function App() {
         <Routes>
       
           <Route path="/" element={<InputForm setEmployeeInfo={setEmployeeInfo} setFormComplete={setFormComplete}/>} />
-      {/* <InputForm setEmployeeInfo={setEmployeeInfo} setFormComplete={setFormComplete}/> */}
-      {/* {setTimeout(()=>{console.log(formComplete)}, 1000)} */}
-      {/* {formComplete?<ReviewForm employeeInfo={employeeInfo} /> : null} */}
-          {formComplete?<Route path="/ReviewForm" element={<ReviewForm employeeInfo={employeeInfo} />} /> : null}
+          <Route path="/ReviewForm" element={<ReviewForm employeeInfo={employeeInfo} formcomplete={formComplete}/>} />
             </Routes>
       
           <EmployeeInfoContext.Provider />

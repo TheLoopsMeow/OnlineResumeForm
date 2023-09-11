@@ -45,8 +45,12 @@ function InputForm ({setEmployeeInfo, setFormComplete}) {
    
     function handleSetIncomplete() {
         setFormComplete(false)
+
+      return(
+        <>
+        </>
+      )
       
-        setPleaseComplete("Please complete all fields.")
     }
     
 
@@ -67,7 +71,7 @@ function InputForm ({setEmployeeInfo, setFormComplete}) {
         
         if (newResumeName && newResumeEmail && newResumePhone && schoolName && degree && graduationDate && priorEmployer && position && employmentDates) {
         setFormComplete(true)
-        setPleaseComplete("")
+      
         
         const tempObj = {
             name: newResumeName,
@@ -168,7 +172,11 @@ function InputForm ({setEmployeeInfo, setFormComplete}) {
         <textarea onChange={(e)=>{handleDates(e)}} style={largeInput} type="text" value={employmentDates} placeholder="When did you work there?"></textarea>
         <br></br>
         
-        <button type="submit" onClick={(e)=>handleButton(e)}><Link to="/ReviewForm" >Apply</Link></button>
+        <button type="submit" onClick={(e)=>handleButton(e)}>
+        <Link to="/ReviewForm" >
+        Apply
+        </Link>
+        </button>
         
         </form>
         </span>

@@ -8,21 +8,10 @@ import {BrowserRouter, RouterProvider, Route, Routes, Link } from "react-router-
 const styles4 = {
     color: "pink"
 }
-function ReviewForm({employeeInfo}) {
+function ReviewForm({employeeInfo, formComplete}) {
     console.log(employeeInfo.name)
     function handleDone () {
         
-    }
-
-    function handleEdit (e) {
-        e.preventDefault()
-        console.log("In handleEdit")
-        return(
-        <>
-        {/* <h1>APPLY NOW</h1>
-        <InputForm /> */}
-      </>
-        )
     }
 
     return(
@@ -51,14 +40,10 @@ function ReviewForm({employeeInfo}) {
                 <div>{employeeInfo.employmentDate}</div>
                 <br></br>
             </span>
-            <button onClick={(e)=>{handleEdit(e)}}>
+            <button>
             <Link to="/">
             Edit
             </Link>
-            </button>
-            <button>
-            Submit
-
             </button>
         </form>
         </>
