@@ -2,7 +2,8 @@ import React from "react"
 import {useState, useContext} from "react"
 import ReviewForm from "./ReviewForm"
 import App from "./App"
-
+import {EmployeeInfoContext} from "./App"
+import {FormCopmleteContext} from "./App"
 
 const styles = {
     color: "pink",
@@ -26,7 +27,12 @@ const largeInput = {
     margin: "2px, 2px"
 }
 
-function InputForm ({employeeInfo}) {
+function InputForm ({setEmployeeInfo, setFormComplete}) {
+
+    let {employeeInfo} = useContext(EmployeeInfoContext)
+    let {formComplete} = useContext(FormCopmleteContext) 
+    
+    
 
     if(employeeInfo){
         console.log(employeeInfo)
@@ -35,7 +41,7 @@ function InputForm ({employeeInfo}) {
     
    
     function handleSetIncomplete() {
-        setIncomplete(true)
+        setFormComplete(false)
       
         setPleaseComplete("Please complete all fields.")
     }
@@ -56,7 +62,7 @@ function InputForm ({employeeInfo}) {
         e.preventDefault()
         
         if (newResumeName && newResumeEmail && newResumePhone && schoolName && degree && graduationDate && priorEmployer && position && employmentDates) {
-        setIncomplete(false)
+        setFormComplete(true)
         setPleaseComplete("")
         
         const tempObj = {
@@ -81,7 +87,7 @@ function InputForm ({employeeInfo}) {
         }
 
        else {handleSetIncomplete()}
-
+       
     }
 
     function handleName (e) {
@@ -160,11 +166,9 @@ function InputForm ({employeeInfo}) {
         <button type="submit" onClick={(e)=>handleButton(e)}>Apply</button>
         </form>
         </span>
-        
          <div style={{color: "red"}}>{pleaseComplete}</div>
-         <span>        
+         <span>
         </span>
-
         </>
         
     )
