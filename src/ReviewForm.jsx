@@ -5,13 +5,21 @@ import {BrowserRouter, RouterProvider, Route, Routes, Link } from "react-router-
 import {useContext} from "react"
 import {EmployeeInfoContext} from "./App"
 import {FormCompleteContext} from "./App"
+import {FilledOutFormContext} from "./App"
+
 
 
 function ReviewForm() {
     let {employeeInfo, setEmployeeInfo} = useContext(EmployeeInfoContext)
     let {formComplete, setFormComplete} = useContext(FormCompleteContext) 
+    const {filledOutForm, setFilledOutForm} = useContext(FilledOutFormContext);
 
     console.log(employeeInfo)
+    
+
+   function initializeForm2() {
+        setFilledOutForm(true)
+   }
 
     return(
         <>
@@ -39,7 +47,7 @@ function ReviewForm() {
                 <div>{employeeInfo.employmentDate}</div>
                 <br></br>
             </span>
-            <button>
+            <button onClick={initializeForm2()}>
             <Link to="/">
             Edit
             </Link>

@@ -1,18 +1,20 @@
 import React from "react"
-import {useState, useContext} from "react"
+import {useState} from "react"
+import {useContext} from "react"
 import ReviewForm from "./ReviewForm"
 import App from "./App"
 import {EmployeeInfoContext} from "./App"
 import {FormCompleteContext} from "./App"
 import {BrowserRouter, Route, Routes, Link } from "react-router-dom"
-
+import {FilledOutFormContext} from "./App"
 
 function InputForm () {
-
 
     let {employeeInfo, setEmployeeInfo} = useContext(EmployeeInfoContext)
     let {formComplete, setFormComplete} = useContext(FormCompleteContext) 
     const [pleaseComplete, setPleaseComplete] = useState("")
+    let {filledOutForm, setFilledOutForm} = useContext(FilledOutFormContext);
+
 
 
     const [newResumeName, setName] = useState("")
@@ -106,36 +108,32 @@ function InputForm () {
         setDates(e.target.value)
     }
 
-    // function form (formComplete) {
+function initializeForm (filledOutForm) {
+    if(filledOutForm){
+        setName(employeeInfo.name) 
+        setEmail(employeeInfo.email)
+        setPhone(employeeInfo.phone) 
+        setSchool(employeeInfo.school) 
+        setDegree(employeeInfo.degree) 
+        setDate(employeeInfo.graduationDate) 
+        setEmployer(employeeInfo.priorEmployer) 
+        setPosition(employeeInfo.position) 
+        setDates(employeeInfo.employmentDate)
+    }
+}
 
-    //     if(formComplete) {
-    //         return(
-
-    //             )
-    //     }
-    //     else (
-
-    //     )
+    // if(filledOutForm){
+    //     initializeForm (filledOutForm)
 
     // }
+
     return (        
- 
-    // employeeInfo.name
-    // employeeInfo.email
-    // employeeInfo.phone
-    // employeeInfo.school
-    // employeeInfo.degree
-    // employeeInfo.graduationDate
-    // employeeInfo.priorEmployer
-    // employeeInfo.position
-    // employeeInfo.employmentDates
         <>
-   {/* value ={setEmployeeInfo(emloyeeInfo.name)} */}
         <span>
         <form >
         Personal Information:
         <br></br>
-        <input type="text" value={newResumeName} onChange={(e)=>{handleName(e)}} placeholder="Name"></input>
+        <input type="text" value={newResumeName} name="newResumeName" onChange={(e)=>{handleName(e)}} placeholder="Name"></input>
         <br></br>
         <input onChange={(e)=>{handleEmail(e)}} type="text" value={newResumeEmail} placeholder="Email"></input>
         <br></br>
@@ -169,7 +167,9 @@ function InputForm () {
         {pleaseComplete}
         </>
         
+  
     )
+    
 }
 export default InputForm
 

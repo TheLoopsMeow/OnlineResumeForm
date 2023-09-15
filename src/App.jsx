@@ -18,18 +18,10 @@ export const EmployeeInfoContext = createContext({
   position: "",
   employmentDate: ""
 })
-// employeeInfo.name
-// employeeInfo.email
-// employeeInfo.phone
-// employeeInfo.school
-// employeeInfo.degree
-// employeeInfo.graduationDate
-// employeeInfo.priorEmployer
-// employeeInfo.position
-// employeeInfo.employmentDates
+export const FilledOutFormContext = createContext()
+
 
 function App() {
-
   const [employeeInfo, setEmployeeInfo] = useState({
     name: "",
     email: "",
@@ -42,13 +34,13 @@ function App() {
     employmentDate: ""
   })
   const [formComplete, setFormComplete] = useState(false)
-
-
+  const [filledOutForm, setFilledOutForm] = useState(false)
 
 
   return (
     <>
     <BrowserRouter>
+    <FilledOutFormContext.Provider value={{filledOutForm, setFilledOutForm}} >
       <FormCompleteContext.Provider  value={{formComplete, setFormComplete}} >
       <EmployeeInfoContext.Provider value={{employeeInfo, setEmployeeInfo}} >
           <h1>APPLY NOW</h1>
@@ -59,6 +51,7 @@ function App() {
           </Routes>
           </EmployeeInfoContext.Provider >
         </FormCompleteContext.Provider >
+        </FilledOutFormContext.Provider>
       </BrowserRouter>
     </>
   )
