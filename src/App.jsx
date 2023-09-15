@@ -5,7 +5,7 @@ import "./inputFormCSS.css"
 import ReviewForm from "./ReviewForm"
 import {BrowserRouter, Route, Routes, Link } from "react-router-dom"
 
-export const FormCopmleteContext = createContext(false)
+export const FormCompleteContext = createContext(false)
 
 export const EmployeeInfoContext = createContext({
   name: "",
@@ -18,7 +18,15 @@ export const EmployeeInfoContext = createContext({
   position: "",
   employmentDate: ""
 })
-// console.log(employeeInfo.name)
+// employeeInfo.name
+// employeeInfo.email
+// employeeInfo.phone
+// employeeInfo.school
+// employeeInfo.degree
+// employeeInfo.graduationDate
+// employeeInfo.priorEmployer
+// employeeInfo.position
+// employeeInfo.employmentDates
 
 function App() {
 
@@ -35,21 +43,23 @@ function App() {
   })
   const [formComplete, setFormComplete] = useState(false)
 
-console.log(employeeInfo.name)
+
+
+console.log(employeeInfo)
+
   return (
     <>
     <BrowserRouter>
-      <FormCopmleteContext.Provider  value={formComplete} />
-      <EmployeeInfoContext.Provider value={employeeInfo} />
-      <h1>APPLY NOW</h1>
-        <Routes>
-      
-          <Route path="/" element={<InputForm setEmployeeInfo={setEmployeeInfo} setFormComplete={setFormComplete}/>} />
-          <Route path="/ReviewForm" element={<ReviewForm employeeInfo={employeeInfo} formcomplete={formComplete}/>} />
-            </Routes>
-      
+      <FormCompleteContext.Provider  value={{formComplete, setFormComplete}} />
+      <EmployeeInfoContext.Provider value={{employeeInfo, setEmployeeInfo}} />
+          <h1>APPLY NOW</h1>
+            <Routes>
+        {/* setEmployeeInfo={setEmployeeInfo} setFormComplete={setFormComplete} */}
+            <Route path="/" element={<InputForm />} />
+            <Route path="/ReviewForm" element={<ReviewForm />} />
+          </Routes>
           <EmployeeInfoContext.Provider />
-        <FormCopmleteContext.Provider />
+        <FormCompleteContext.Provider />
       </BrowserRouter>
     </>
   )

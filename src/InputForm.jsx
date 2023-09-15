@@ -3,56 +3,15 @@ import {useState, useContext} from "react"
 import ReviewForm from "./ReviewForm"
 import App from "./App"
 import {EmployeeInfoContext} from "./App"
-import {FormCopmleteContext} from "./App"
-
+import {FormCompleteContext} from "./App"
 import {BrowserRouter, Route, Routes, Link } from "react-router-dom"
 
 
-const styles = {
-    color: "pink",
-    display: "inline-block",
+function InputForm () {
 
-}
-
-const styles2 = {
-    align: "right"
-}
-
-const largeInput = {
-    width: "10em",
-    height: "10em",
-    textAlign: "bottom",
-    backgroundColor: "pink",
-    color: "black",
-    textAlign: "left", 
-    verticalAlign: "top",
-    padding: "2px, 2px",
-    margin: "2px, 2px"
-}
-
-function InputForm ({setEmployeeInfo, setFormComplete}) {
-
-    let {employeeInfo} = useContext(EmployeeInfoContext)
-    let {formComplete} = useContext(FormCopmleteContext) 
-    
-    
-
-    if(employeeInfo){
-        console.log(employeeInfo)
-    }
+    let {employeeInfo, setEmployeeInfo} = useContext(EmployeeInfoContext)
+    let {formComplete, setFormComplete} = useContext(FormCompleteContext) 
     const [pleaseComplete, setPleaseComplete] = useState("")
-    
-   
-    function handleSetIncomplete() {
-        setFormComplete(false)
-
-      return(
-        <>
-        </>
-      )
-      
-    }
-    
 
     const [newResumeName, setName] = useState("")
     const [newResumeEmail, setEmail ] = useState("")
@@ -71,8 +30,6 @@ function InputForm ({setEmployeeInfo, setFormComplete}) {
         
         if (newResumeName && newResumeEmail && newResumePhone && schoolName && degree && graduationDate && priorEmployer && position && employmentDates) {
         setFormComplete(true)
-      
-        
         const tempObj = {
             name: newResumeName,
             email: newResumeEmail,
@@ -84,19 +41,20 @@ function InputForm ({setEmployeeInfo, setFormComplete}) {
             position: position,
             employmentDate: employmentDates
         }
-
-    function handleSetEmployeeInfo () {
-        setEmployeeInfo(tempObj)
-        }
-
         //call the function to set the employee object
-        handleSetEmployeeInfo()
-        
+        handleSetEmployeeInfo(tempObj)
         }
-
-       else {handleSetIncomplete()}
-       
+        else {handleSetIncomplete()}
     }
+
+    function handleSetIncomplete() {
+        setFormComplete(false)
+    }
+        
+    function handleSetEmployeeInfo (tempObj) {
+        setEmployeeInfo(tempObj)
+        console.log(employeeInfo)
+        }
 
     function handleName (e) {
         e.preventDefault()
@@ -106,6 +64,7 @@ function InputForm ({setEmployeeInfo, setFormComplete}) {
     function handleEmail (e) {
         e.preventDefault()
         setEmail(e.target.value)
+
     }
 
     function handlePhone (e) {
@@ -139,10 +98,20 @@ function InputForm ({setEmployeeInfo, setFormComplete}) {
         setDates(e.target.value)
     }
 
-    return (
+    return (        
+ 
+    // employeeInfo.name
+    // employeeInfo.email
+    // employeeInfo.phone
+    // employeeInfo.school
+    // employeeInfo.degree
+    // employeeInfo.graduationDate
+    // employeeInfo.priorEmployer
+    // employeeInfo.position
+    // employeeInfo.employmentDates
         <>
-        
-        <span style={styles}>
+
+        <span>
         <form >
         Personal Information:
         <br></br>
@@ -169,7 +138,7 @@ function InputForm ({setEmployeeInfo, setFormComplete}) {
         <input onChange={(e)=>{handlePosition(e)}} type="text" value={position} placeholder="Position held"></input>
         <br></br>
         <br></br>
-        <textarea onChange={(e)=>{handleDates(e)}} style={largeInput} type="text" value={employmentDates} placeholder="When did you work there?"></textarea>
+        <textarea onChange={(e)=>{handleDates(e)}} type="text" value={employmentDates} placeholder="When did you work there?"></textarea>
         <br></br>
         
         <button type="submit" onClick={(e)=>handleButton(e)}>
@@ -180,7 +149,6 @@ function InputForm ({setEmployeeInfo, setFormComplete}) {
         
         </form>
         </span>
-         <div style={{color: "red"}}>{pleaseComplete}</div>
          <span>
         </span>
         </>

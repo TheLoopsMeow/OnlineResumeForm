@@ -2,16 +2,17 @@ import React from "react"
 import InputForm from "./InputForm"
 import App from "./App"
 import {BrowserRouter, RouterProvider, Route, Routes, Link } from "react-router-dom"
+import {useContext} from "react"
+import {EmployeeInfoContext} from "./App"
+import {FormCompleteContext} from "./App"
 
 
+function ReviewForm() {
+    let {employeeInfo, setEmployeeInfo} = useContext(EmployeeInfoContext)
+    let {formComplete, setFormComplete} = useContext(FormCompleteContext) 
 
-const styles4 = {
-    color: "pink"
-}
-function ReviewForm({employeeInfo, formComplete}) {
-    function handleDone () {
-        
-    }
+    console.log(employeeInfo)
+
     return(
         <>
         <form>
@@ -19,20 +20,20 @@ function ReviewForm({employeeInfo, formComplete}) {
                 
                 <br></br>
                 <br></br>
-                <div style={styles4}>Personal Information:</div>
+                <div>Personal Information:</div>
                
                 <div>{employeeInfo.name}</div>
                 <div>{employeeInfo.email}</div>
                 <div>{employeeInfo.phone}</div>
 
                 <br></br>
-                <div style={styles4}>Education:</div>
+                <div>Education:</div>
                 <div>{employeeInfo.school}</div>
                 <div>{employeeInfo.degree}</div>
                 <div>{employeeInfo.graduationDate}</div>
 
                 <br></br>
-                <div style={styles4}>Prior Experience:</div>
+                <div>Prior Experience:</div>
                 <div>{employeeInfo.priorEmployer}</div>
                 <div>{employeeInfo.position}</div>
                 <div>{employeeInfo.employmentDate}</div>
@@ -44,6 +45,8 @@ function ReviewForm({employeeInfo, formComplete}) {
             </Link>
             </button>
         </form>
+        {formComplete?<button>Submit</button>: null}
+
         </>
     )
 }
