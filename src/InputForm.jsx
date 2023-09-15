@@ -46,7 +46,11 @@ function InputForm () {
         //call the function to set the employee object
         handleSetEmployeeInfo(tempObj)
         }
-        else {handleSetIncomplete()}
+        else {
+            handleSetIncomplete()
+            setPleaseComplete(<p id="pleaseComplete">Please fill all fields.</p>)
+            
+        }
     }
 
     function handleSetIncomplete() {
@@ -102,6 +106,18 @@ function InputForm () {
         setDates(e.target.value)
     }
 
+    // function form (formComplete) {
+
+    //     if(formComplete) {
+    //         return(
+
+    //             )
+    //     }
+    //     else (
+
+    //     )
+
+    // }
     return (        
  
     // employeeInfo.name
@@ -114,7 +130,7 @@ function InputForm () {
     // employeeInfo.position
     // employeeInfo.employmentDates
         <>
-
+   {/* value ={setEmployeeInfo(emloyeeInfo.name)} */}
         <span>
         <form >
         Personal Information:
@@ -132,7 +148,7 @@ function InputForm () {
         <br></br>
         <input onChange={(e)=>{handleDegree(e)}} type="text" value={degree} placeholder="Degree received"></input>
         <br></br>
-        <input onChange={(e)=>{handleCollegeDate(e)}} type="text" value={graduationDate} placeholder="When did you graduate?"></input>
+        <input onChange={(e)=>{handleCollegeDate(e)}} type="text" value={graduationDate} placeholder="Year of graduation"></input>
         <br></br>
 
         Prior Experience:
@@ -142,19 +158,15 @@ function InputForm () {
         <input onChange={(e)=>{handlePosition(e)}} type="text" value={position} placeholder="Position held"></input>
         <br></br>
         <br></br>
-        <textarea onChange={(e)=>{handleDates(e)}} type="text" value={employmentDates} placeholder="When did you work there?"></textarea>
+        <textarea onChange={(e)=>{handleDates(e)}} type="text" value={employmentDates} placeholder="Please describe the job duties."></textarea>
         <br></br>
         
         <button type="submit" onClick={(e)=>handleButton(e)}>
-        <Link to="/ReviewForm" >
-        Apply
-        </Link>
+            {formComplete?<Link to="/ReviewForm" ><p>Apply</p></Link>: <p>Apply</p>}
         </button>
-        
         </form>
         </span>
-         <span>
-        </span>
+        {pleaseComplete}
         </>
         
     )
