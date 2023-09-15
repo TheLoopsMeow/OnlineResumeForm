@@ -9,9 +9,11 @@ import {BrowserRouter, Route, Routes, Link } from "react-router-dom"
 
 function InputForm () {
 
+
     let {employeeInfo, setEmployeeInfo} = useContext(EmployeeInfoContext)
     let {formComplete, setFormComplete} = useContext(FormCompleteContext) 
     const [pleaseComplete, setPleaseComplete] = useState("")
+
 
     const [newResumeName, setName] = useState("")
     const [newResumeEmail, setEmail ] = useState("")
@@ -54,6 +56,8 @@ function InputForm () {
     function handleSetEmployeeInfo (tempObj) {
         setEmployeeInfo(tempObj)
         console.log(employeeInfo)
+        console.log(employeeInfo)
+
         }
 
     function handleName (e) {

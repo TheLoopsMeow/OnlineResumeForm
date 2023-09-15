@@ -45,21 +45,20 @@ function App() {
 
 
 
-console.log(employeeInfo)
 
   return (
     <>
     <BrowserRouter>
-      <FormCompleteContext.Provider  value={{formComplete, setFormComplete}} />
-      <EmployeeInfoContext.Provider value={{employeeInfo, setEmployeeInfo}} />
+      <FormCompleteContext.Provider  value={{formComplete, setFormComplete}} >
+      <EmployeeInfoContext.Provider value={{employeeInfo, setEmployeeInfo}} >
           <h1>APPLY NOW</h1>
             <Routes>
         {/* setEmployeeInfo={setEmployeeInfo} setFormComplete={setFormComplete} */}
             <Route path="/" element={<InputForm />} />
             <Route path="/ReviewForm" element={<ReviewForm />} />
           </Routes>
-          <EmployeeInfoContext.Provider />
-        <FormCompleteContext.Provider />
+          </EmployeeInfoContext.Provider >
+        </FormCompleteContext.Provider >
       </BrowserRouter>
     </>
   )
