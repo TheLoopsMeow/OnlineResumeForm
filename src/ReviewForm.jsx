@@ -16,7 +16,6 @@ function ReviewForm() {
     
     console.log(employeeInfo)
 
-
     return(
         <>
         <form id="inputform">

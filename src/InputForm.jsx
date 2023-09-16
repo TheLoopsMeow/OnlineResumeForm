@@ -20,7 +20,7 @@ function InputForm () {
     const [schoolName, setSchool ] = useState(employeeInfo.school)
     const [degree, setDegree ] = useState(employeeInfo.degree)
     const [graduationDate, setDate ] = useState(employeeInfo.graduationDate)
-    const [priorEmployer, setEmployer ] = useState(employeeInfo.prioEmployer)
+    const [priorEmployer, setEmployer ] = useState(employeeInfo.priorEmployer)
     const [position, setPosition ] = useState(employeeInfo.position)
     const [employmentDates, setDates ] = useState(employeeInfo.employmentDate) 
 
@@ -135,8 +135,11 @@ function InputForm () {
         <br></br>
         
         <button type="submit" onClick={(e)=>handleButton(e)}>
-            <Link to="/ReviewForm" ><p>Apply</p></Link>
+            Looks good!
         </button>
+        <br></br>
+        {formComplete?<Link to="/ReviewForm" >Apply</Link>: null}
+        
         <br></br>
         </form>
         {pleaseComplete}
