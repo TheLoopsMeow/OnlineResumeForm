@@ -44,12 +44,12 @@ function ReviewForm() {
                 <div>{employeeInfo.employmentDate}</div>
                 <br></br>
             </span>
-            <button>
+            {/* <button>
             <Link to="/InputForm2">
             Edit
             </Link>
-            </button>
-            <button><Link to="/"><p>Start Over</p></Link></button>
+            </button> */}
+            <span><Link to="/"><p>EDIT</p></Link></span>
 
         </form>
 
