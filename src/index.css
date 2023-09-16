@@ -16,7 +16,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #bcbee2;
   text-decoration: inherit;
 }
 a:hover {
@@ -26,14 +26,24 @@ a:hover {
 body {
   margin: 0;
   display: flex;
+  flex-direction: row;
+  align-content: flex-start;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100vh; 
+  background-image: url("./assets/depressed_call_center1.jpeg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(29, 47, 57, 0.87)
+
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-shadow: 5px 5px 5px black;
+  color: rgba(128, 172, 195, 0.78);
 }
 
 button {
@@ -43,13 +53,14 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: rgba(29, 47, 57, 0.87);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #12143a;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -57,7 +68,7 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: #dadfe3;
     background-color: #ffffff;
   }
   a:hover {

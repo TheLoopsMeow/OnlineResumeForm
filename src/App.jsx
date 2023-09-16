@@ -1,7 +1,6 @@
 import { useState, createContext } from 'react'
 import './App.css'
 import InputForm from "./InputForm"
-import "./inputFormCSS.css"
 import ReviewForm from "./ReviewForm"
 import {BrowserRouter, Route, Routes, Link } from "react-router-dom"
 import InputForm2 from "./InputForm2"
@@ -46,9 +45,9 @@ function App() {
       <EmployeeInfoContext.Provider value={{employeeInfo, setEmployeeInfo}} >
           <h1>APPLY NOW</h1>
             <Routes>
-            <Route path="/" element={<InputForm />} />
-            <Route path="/ReviewForm" element={<ReviewForm />} />
-            <Route path="/InputForm2" element={<InputForm2 />} />
+            <Route path="/" exact element={<InputForm />} />
+            <Route path="/ReviewForm" exact element={<ReviewForm />} />
+            <Route path="/InputForm2" exact element={<InputForm2 />} />
           </Routes>
           </EmployeeInfoContext.Provider >
         </FormCompleteContext.Provider >

@@ -22,9 +22,7 @@ function InputForm () {
     const [graduationDate, setDate ] = useState("")
     const [priorEmployer, setEmployer ] = useState("")
     const [position, setPosition ] = useState("")
-    const [employmentDates, setDates ] = useState("")
-    const [infoComplete, setInfoComplete] = useState(false)
- 
+    const [employmentDates, setDates ] = useState("") 
 
     function handleButton (e) {
         e.preventDefault()
@@ -47,7 +45,7 @@ function InputForm () {
         }
         else {
             handleSetIncomplete()
-            setPleaseComplete(<p id="pleaseComplete">Please fill all fields.</p>)
+            setPleaseComplete(<p id="pleaseComplete">Please complete all fields.</p>)
             
         }
     }
@@ -106,7 +104,7 @@ function InputForm () {
 
     return (        
         <>
-        <span>
+        <span id="inputform">
         <form >
         Personal Information:
         <br></br>
@@ -137,11 +135,13 @@ function InputForm () {
         <br></br>
         
         <button type="submit" onClick={(e)=>handleButton(e)}>
-            {formComplete?<Link to="/ReviewForm" ><p>Apply</p></Link>: <p>Apply</p>}
+            <Link to="/ReviewForm" ><p>Apply</p></Link>
         </button>
+        <br></br>
         </form>
-        </span>
         {pleaseComplete}
+        </span>
+        
         </>
         
   

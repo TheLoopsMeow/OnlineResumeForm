@@ -6,6 +6,8 @@ import {useContext, useState} from "react"
 import {EmployeeInfoContext} from "./App"
 import {FormCompleteContext} from "./App"
 import {FilledOutFormContext} from "./App"
+import "./App.css"
+import "./index.css"
 
 function InputForm2() {
     let {employeeInfo, setEmployeeInfo} = useContext(EmployeeInfoContext)
@@ -21,9 +23,8 @@ function InputForm2() {
     const [graduationDate, setDate ] = useState("")
     const [priorEmployer, setEmployer ] = useState("")
     const [position, setPosition ] = useState("")
-    const [employmentDates, setDates ] = useState("")
-    const [infoComplete, setInfoComplete] = useState(false)
- 
+    const [employmentDates, setDates ] = useState("") 
+    const [initializedForm, setInitializedForm] = useState("")
 
     function handleButton (e) {
         e.preventDefault()
@@ -100,85 +101,95 @@ function InputForm2() {
     function handleDates (e) {
         e.preventDefault()
         setDates(e.target.value)
-    }
-
-function initializeForm (filledOutForm) {
-    if(filledOutForm){
-        setName(employeeInfo.name) 
-        setEmail(employeeInfo.email)
-        setPhone(employeeInfo.phone) 
-        setSchool(employeeInfo.school) 
-        setDegree(employeeInfo.degree) 
-        setDate(employeeInfo.graduationDate) 
-        setEmployer(employeeInfo.priorEmployer) 
-        setPosition(employeeInfo.position) 
-        setDates(employeeInfo.employmentDate)
-        setFilledOutForm(false)
-    }
-}        
+    }  
  
 
     return (        
         <>
-        {/* {initializeForm(filledOutForm)} */}
-        <span>
+  
+        <span id="inputform">
+        <p>Please update:</p>
         <form >
         Personal Information:
         <br></br>
-        You entered: {employeeInfo.name}
-        <br></br>
+
         <input type="text" value={newResumeName} name="newResumeName" onChange={(e)=>{handleName(e)}} placeholder="Name"></input>
         <br></br>
-        You entered: {employeeInfo.email}
-        <br></br>
+
         <input onChange={(e)=>{handleEmail(e)}} type="text" value={newResumeEmail} placeholder="Email"></input>
         <br></br>
-        You entered: {employeeInfo.phone}
-        <br></br>
+ 
         <input onChange={(e)=>{handlePhone(e)}} type="text" value={newResumePhone} placeholder="Phone"></input>
         <br></br>
 
         Education:
         <br></br>
-        You entered: {employeeInfo.school}
-        <br></br>
+
         <input onChange={(e)=>{handleSchool(e)}} type="text" value={schoolName} placeholder="School"></input>
         <br></br>
-        You entered: {employeeInfo.degree}
-        <br></br>
+
         <input onChange={(e)=>{handleDegree(e)}} type="text" value={degree} placeholder="Degree received"></input>
         <br></br>
-        You entered: {employeeInfo.graduationDates}
-        <br></br>
+
         <input onChange={(e)=>{handleCollegeDate(e)}} type="text" value={graduationDate} placeholder="Year of graduation"></input>
         <br></br>
 
         Prior Experience:
         <br></br>
-        You entered: {employeeInfo.priorEmployer}
-        <br></br>
+
         <input onChange={(e)=>{handleEmployer(e)}} type="text" value={priorEmployer} placeholder="Past employer name"></input>
         <br></br>
-        You entered: {employeeInfo.position}
-        <br></br>
+
         <input onChange={(e)=>{handlePosition(e)}} type="text" value={position} placeholder="Position held"></input>
         <br></br>
         <br></br>
-        You entered: {employeeInfo.employmentDates}
-        <br></br>
+
         <textarea onChange={(e)=>{handleDates(e)}} type="text" value={employmentDates} placeholder="Please describe the job duties."></textarea>
         <br></br>
         
         <button type="submit" onClick={(e)=>handleButton(e)}>
-            {formComplete?<Link to="/ReviewForm" ><p>Apply</p></Link>: <p>Apply</p>}
+            <Link to="/ReviewForm" ><p>Apply</p></Link>
         </button>
+        <button><Link to="/"><p>Start Over</p></Link></button>
         </form>
-        </span>
+    
         {pleaseComplete}
-        </>
-        
+        </span>
   
+
+        <span id="inputform">
+                
+                <br></br>
+                You entered:
+                <br></br>
+                <div>Personal Information:</div>
+               
+                <div>{employeeInfo.name}</div>
+                <div>{employeeInfo.email}</div>
+                <div>{employeeInfo.phone}</div>
+
+                <br></br>
+                <div>Education:</div>
+                <div>{employeeInfo.school}</div>
+                <div>{employeeInfo.degree}</div>
+                <div>{employeeInfo.graduationDate}</div>
+
+                <br></br>
+                <div>Prior Experience:</div>
+                <div>{employeeInfo.priorEmployer}</div>
+                <div>{employeeInfo.position}</div>
+                <div>{employeeInfo.employmentDate}</div>
+                <br></br>
+            </span>
+    
+        </>
+       
+
     )
+
 }
 
+
 export default InputForm2 
+
+

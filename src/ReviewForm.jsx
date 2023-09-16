@@ -15,19 +15,15 @@ function ReviewForm() {
     const {filledOutForm, setFilledOutForm} = useContext(FilledOutFormContext);
     
     console.log(employeeInfo)
-//    function initializeForm2() {
-        // setFilledOutForm(true)
-//    }
-
-//    initializeForm2()
 
 
     return(
         <>
-        <form>
+        <form id="inputform">
             <span>
                 
                 <br></br>
+                You entered:
                 <br></br>
                 <div>Personal Information:</div>
                
@@ -53,8 +49,9 @@ function ReviewForm() {
             Edit
             </Link>
             </button>
+            <button><Link to="/"><p>Start Over</p></Link></button>
+
         </form>
-        {formComplete?<button>Submit</button>: null}
 
         </>
     )

@@ -5,15 +5,6 @@
   text-align: center;
 }
 
- .styles {
-  color: "pink";
-  display: "inline-block";
-
-}
-
-.styles2 {
-  align: "right";
-}
 
 .largeInput {
   width: "10em";
@@ -28,8 +19,31 @@
 
 }
 
-.styles4 {
-  color: "pink";
+
+#inputform {
+  text-align: center;
+  display: inline-block;
+  background-color: rgba(23, 77, 89, 0.5);
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 5vw;
+}
+::placeholder {
+  color: rgb(200, 200, 200);
+}
+input {
+  background-color: rgba(59, 134, 174, 0.69);
+  border-style: groove;
+  
 }
 
+textarea {
+  background-color: rgba(59, 134, 174, 0.69);
+  border-style: groove;
+}
 
+#pleaseComplete {
+  color: rgb(187, 110, 129);
+  text-shadow: 4px 1px 5px rgb(52, 14, 14);
+  background-color: rgba(13, 44, 52, 0.5);
+}
