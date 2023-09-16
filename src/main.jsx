@@ -5,6 +5,7 @@ import './index.css'
 import {createBrowserRouter, BrowserRouter, RouterProvider, Route, Routes, Link } from "react-router-dom"
 import InputForm from "./InputForm"
 import ReviewForm from "./ReviewForm"
+import InputForm2 from "./InputForm2"
 
 const Router = createBrowserRouter([
  {
@@ -14,6 +15,10 @@ const Router = createBrowserRouter([
  {
   path: "/ReviewForm",
   element: <ReviewForm />
+ },
+ {
+  path: "/InputForm",
+  element: <InputForm2 />
  }
 
 ])

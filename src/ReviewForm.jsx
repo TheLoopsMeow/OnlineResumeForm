@@ -13,13 +13,14 @@ function ReviewForm() {
     let {employeeInfo, setEmployeeInfo} = useContext(EmployeeInfoContext)
     let {formComplete, setFormComplete} = useContext(FormCompleteContext) 
     const {filledOutForm, setFilledOutForm} = useContext(FilledOutFormContext);
-
-    console.log(employeeInfo)
     
+    console.log(employeeInfo)
+//    function initializeForm2() {
+        // setFilledOutForm(true)
+//    }
 
-   function initializeForm2() {
-        setFilledOutForm(true)
-   }
+//    initializeForm2()
+
 
     return(
         <>
@@ -47,8 +48,8 @@ function ReviewForm() {
                 <div>{employeeInfo.employmentDate}</div>
                 <br></br>
             </span>
-            <button onClick={initializeForm2()}>
-            <Link to="/">
+            <button>
+            <Link to="/InputForm2">
             Edit
             </Link>
             </button>
