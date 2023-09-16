@@ -19,7 +19,7 @@ function ReviewForm() {
     return(
         <>
         <form id="inputform">
-            <span>
+            <span id="form">
                 
                 <br></br>
                 You entered:
@@ -43,11 +43,7 @@ function ReviewForm() {
                 <div>{employeeInfo.employmentDate}</div>
                 <br></br>
             </span>
-            {/* <button>
-            <Link to="/InputForm2">
-            Edit
-            </Link>
-            </button> */}
+ 
             <span><Link to="/"><p>EDIT</p></Link></span>
 
         </form>

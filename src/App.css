@@ -19,6 +19,15 @@
 
 }
 
+#form {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.4vw;
+  font-weight: bold;
+  color: rgba(163, 152, 126, 0.85);
+  text-shadow: 2px 2px 2px rgb(61, 49, 9);
+  background-color: rgba(42, 33, 7, 0.7);
+  border-radius: 8px;
+}
 
 #inputform {
   text-align: center;
@@ -32,18 +41,30 @@
   color: rgb(200, 200, 200);
 }
 input {
-  background-color: rgba(59, 134, 174, 0.69);
+  background-color: rgba(132, 124, 33, 0.69);
   border-style: groove;
+  border-radius: 8px;
   
 }
 
 textarea {
-  background-color: rgba(59, 134, 174, 0.69);
+  background-color: rgba(132, 124, 33, 0.69);
   border-style: groove;
+  border-radius: 8px;
 }
 
 #pleaseComplete {
-  color: rgb(187, 110, 129);
+  color: rgb(186, 97, 119);
   text-shadow: 4px 1px 5px rgb(52, 14, 14);
   background-color: rgba(13, 44, 52, 0.5);
+}
+
+#quote {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.4vw;
+  font-weight: bold;
+  color: rgba(163, 152, 126, 0.85);
+  text-shadow: 2px 2px 2px rgb(61, 49, 9);
+  background-color: rgba(42, 33, 7, 0.7);
+
 }

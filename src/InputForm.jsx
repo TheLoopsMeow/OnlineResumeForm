@@ -7,6 +7,9 @@ import {EmployeeInfoContext} from "./App"
 import {FormCompleteContext} from "./App"
 import {BrowserRouter, Route, Routes, Link } from "react-router-dom"
 import {FilledOutFormContext} from "./App"
+import {useEffect} from "react"
+
+
 
 function InputForm () {
 
@@ -105,7 +108,7 @@ function InputForm () {
     return (        
         <>
         <span id="inputform">
-        <form >
+        <form id="form">
         Personal Information:
         <br></br>
         <input type="text" value={newResumeName} name="newResumeName" onChange={(e)=>{handleName(e)}} placeholder="Name"></input>
@@ -140,7 +143,7 @@ function InputForm () {
         <br></br>
         {formComplete?<Link to="/ReviewForm" >Apply</Link>: null}
         
-        <br></br>
+        
         </form>
         {pleaseComplete}
         </span>
