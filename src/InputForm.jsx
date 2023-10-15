@@ -15,7 +15,6 @@ function InputForm () {
     const navigate = useNavigate()
     let {employeeInfo, setEmployeeInfo} = useContext(EmployeeInfoContext)
     let {formComplete, setFormComplete} = useContext(FormCompleteContext) 
-    const [pleaseComplete, setPleaseComplete] = useState("")
     let {filledOutForm, setFilledOutForm} = useContext(FilledOutFormContext)
     const [newResumeName, setName] = useState(employeeInfo.name)
     const [newResumeEmail, setEmail ] = useState(employeeInfo.email)
@@ -46,12 +45,11 @@ function InputForm () {
 
         if (newResumeName && newResumeEmail && newResumePhone && schoolName && degree && graduationDate && priorEmployer && position && employmentDates) {
         setFormComplete(true)
-        setPleaseComplete("")
         handleSetEmployeeInfo(tempObj)
         }
         else {
             handleSetIncomplete()
-            setPleaseComplete(<p id="pleaseComplete">Please complete all fields.</p>)
+
             
         }
         navigate('/ReviewForm')
@@ -147,7 +145,6 @@ function InputForm () {
         <br></br>
         <br></br>
         </form>
-        {pleaseComplete}
         </span>
         </>
     )

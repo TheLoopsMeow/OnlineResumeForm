@@ -48,7 +48,7 @@ function handleButton(){
             </span>
              <button onClick={()=>{handleButton()}}>EDIT</button>
             <br></br>
-            {!formComplete?<p id="pleaseComplete">Please complete all fiels</p>:null}
+            {!formComplete?<p id="pleaseComplete">Please complete all fields</p>:null}
 
 
         </form>
