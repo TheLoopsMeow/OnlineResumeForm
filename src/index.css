@@ -1,18 +1,4 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
 
 a {
   font-weight: 500;
@@ -32,6 +18,7 @@ body {
   min-width: 320px;
   min-height: 100vh; 
   background-image: url("./assets/depressed_call_center1.jpeg");
+  background-size: 110%;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -47,34 +34,16 @@ h1 {
 }
 
 button {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
   background-color: rgba(74, 81, 13, 0.87);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
   border-color: #12143a;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #dadfe3;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
