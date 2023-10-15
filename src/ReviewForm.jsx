@@ -17,7 +17,6 @@ function ReviewForm() {
     const navigate = useNavigate()
 
 function handleButton(){
-    console.log("button pressed")
     navigate('/')
 }
     return(
@@ -47,9 +46,7 @@ function handleButton(){
                 <div>{employeeInfo.employmentDate}</div>
                 <br></br>
             </span>
- 
-            {/* <span><Link to="/"><p>EDIT</p></Link></span> */}
-            <button onClick={()=>{handleButton()}}>EDIT</button>
+             <button onClick={()=>{handleButton()}}>EDIT</button>
             <br></br>
             {!formComplete?<p id="pleaseComplete">Please complete all fiels</p>:null}
 
