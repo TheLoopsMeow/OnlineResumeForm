@@ -54,7 +54,6 @@ function App() {
     
     if(quotes){
       authorArray = string.split(",")
-      console.log(authorArray)
     }
   }
 

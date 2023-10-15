@@ -6,6 +6,7 @@ import {useContext} from "react"
 import {EmployeeInfoContext} from "./App"
 import {FormCompleteContext} from "./App"
 import {FilledOutFormContext} from "./App"
+import {useNavigate} from "react-router-dom"
 
 
 
@@ -13,9 +14,12 @@ function ReviewForm() {
     let {employeeInfo, setEmployeeInfo} = useContext(EmployeeInfoContext)
     let {formComplete, setFormComplete} = useContext(FormCompleteContext) 
     const {filledOutForm, setFilledOutForm} = useContext(FilledOutFormContext);
-    
-    console.log(employeeInfo)
+    const navigate = useNavigate()
 
+function handleButton(){
+    console.log("button pressed")
+    navigate('/')
+}
     return(
         <>
         <form id="inputform">
@@ -44,7 +48,11 @@ function ReviewForm() {
                 <br></br>
             </span>
  
-            <span><Link to="/"><p>EDIT</p></Link></span>
+            {/* <span><Link to="/"><p>EDIT</p></Link></span> */}
+            <button onClick={()=>{handleButton()}}>EDIT</button>
+            <br></br>
+            {!formComplete?<p id="pleaseComplete">Please complete all fiels</p>:null}
+
 
         </form>
 

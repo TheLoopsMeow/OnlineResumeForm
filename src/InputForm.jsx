@@ -8,11 +8,11 @@ import {FormCompleteContext} from "./App"
 import {BrowserRouter, Route, Routes, Link } from "react-router-dom"
 import {FilledOutFormContext} from "./App"
 import {useEffect} from "react"
-
+import {useNavigate} from "react-router-dom"
 
 
 function InputForm () {
-
+    const navigate = useNavigate()
     let {employeeInfo, setEmployeeInfo} = useContext(EmployeeInfoContext)
     let {formComplete, setFormComplete} = useContext(FormCompleteContext) 
     const [pleaseComplete, setPleaseComplete] = useState("")
@@ -30,8 +30,6 @@ function InputForm () {
     function handleButton (e) {
         e.preventDefault()
         
-        if (newResumeName && newResumeEmail && newResumePhone && schoolName && degree && graduationDate && priorEmployer && position && employmentDates) {
-        setFormComplete(true)
         const tempObj = {
             name: newResumeName,
             email: newResumeEmail,
@@ -45,12 +43,18 @@ function InputForm () {
         }
         //call the function to set the employee object
         handleSetEmployeeInfo(tempObj)
+
+        if (newResumeName && newResumeEmail && newResumePhone && schoolName && degree && graduationDate && priorEmployer && position && employmentDates) {
+        setFormComplete(true)
+        setPleaseComplete("")
+        handleSetEmployeeInfo(tempObj)
         }
         else {
             handleSetIncomplete()
             setPleaseComplete(<p id="pleaseComplete">Please complete all fields.</p>)
             
         }
+        navigate('/ReviewForm')
     }
 
     function handleSetIncomplete() {
@@ -136,21 +140,16 @@ function InputForm () {
         <br></br>
         <textarea onChange={(e)=>{handleDates(e)}} type="text" value={employmentDates} placeholder="Please describe the job duties."></textarea>
         <br></br>
-        
-        <button type="submit" onClick={(e)=>handleButton(e)}>
+        <button type="submit" onClick={(e)=>handleButton(e)} href="/ReviewForm">
             Looks good!
         </button>
         <br></br>
-        {formComplete?<Link to="/ReviewForm" >Apply</Link>: null}
-        
-        
+        <br></br>
+        <br></br>
         </form>
         {pleaseComplete}
         </span>
-        
         </>
-        
-  
     )
     
 }
